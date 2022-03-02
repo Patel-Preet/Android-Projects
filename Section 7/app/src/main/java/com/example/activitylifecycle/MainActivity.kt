@@ -5,7 +5,12 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.Window
 import android.widget.Button
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         Log.d(TAG, "onCreate() called")
 
         var buttonInOne : Button = findViewById(R.id.button_in_one)
@@ -62,5 +68,22 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d(TAG, "onDestroy() called")
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val mInflater: MenuInflater = MenuInflater(this)
+        mInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.toast -> Toast.makeText(this, "Toast", Toast.LENGTH_LONG).show()
+            R.id.log -> Log.d(TAG, "Log")
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
+        return true
     }
 }
