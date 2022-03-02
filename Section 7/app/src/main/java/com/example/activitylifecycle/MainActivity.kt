@@ -28,10 +28,10 @@ class MainActivity : AppCompatActivity() {
 //        }
 
         //For Implicit Intent
-        buttonInOne.setOnClickListener {
-            var implicitIntent : Intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"))
-            startActivity(implicitIntent)
-        }
+//        buttonInOne.setOnClickListener {
+//            var implicitIntent : Intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"))
+//            startActivity(implicitIntent)
+//        }
     }
 
     override fun onStart() {
