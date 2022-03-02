@@ -1,6 +1,7 @@
 package com.example.activitylifecycle
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -17,12 +18,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Log.d(TAG, "onCreate() called")
 
-        //For Explicit Intent
         var buttonInOne : Button = findViewById(R.id.button_in_one)
+
+        //For Explicit Intent
+//        buttonInOne.setOnClickListener {
+//            var intentInOne = Intent(it.context, SecondActivity::class.java)
+//            intentInOne.putExtra("extra", "Message from activity 1")
+//            startActivity(intentInOne)
+//        }
+
+        //For Implicit Intent
         buttonInOne.setOnClickListener {
-            var intentInOne = Intent(it.context, SecondActivity::class.java)
-            intentInOne.putExtra("extra", "Message from activity 1")
-            startActivity(intentInOne)
+            var implicitIntent : Intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"))
+            startActivity(implicitIntent)
         }
     }
 
